@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>view.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="App.html">App</a><ul class='methods'><li data-type='method'><a href="App.html#~setView">setView</a></li></ul></li><li><a href="App-Todo.html">Todo</a></li><li><a href="Controller.html">Controller</a><ul class='methods'><li data-type='method'><a href="Controller.html#_filter">_filter</a></li><li data-type='method'><a href="Controller.html#_updateCount">_updateCount</a></li><li data-type='method'><a href="Controller.html#_updateFilterState">_updateFilterState</a></li><li data-type='method'><a href="Controller.html#addItem">addItem</a></li><li data-type='method'><a href="Controller.html#removeCompletedItems">removeCompletedItems</a></li><li data-type='method'><a href="Controller.html#removeItem">removeItem</a></li><li data-type='method'><a href="Controller.html#setView">setView</a></li><li data-type='method'><a href="Controller.html#showActive">showActive</a></li><li data-type='method'><a href="Controller.html#showAll">showAll</a></li><li data-type='method'><a href="Controller.html#showCompleted">showCompleted</a></li><li data-type='method'><a href="Controller.html#toggleAll">toggleAll</a></li><li data-type='method'><a href="Controller.html#toggleComplete">toggleComplete</a></li></ul></li><li><a href="Helper.html">Helper</a><ul class='methods'><li data-type='method'><a href="Helper.html#$delegate">$delegate</a></li><li data-type='method'><a href="Helper.html#$on">$on</a></li><li data-type='method'><a href="Helper.html#$parent">$parent</a></li><li data-type='method'><a href="Helper.html#qs">qs</a></li><li data-type='method'><a href="Helper.html#qsa">qsa</a></li></ul></li><li><a href="Model.html">Model</a><ul class='methods'><li data-type='method'><a href="Model.html#create">create</a></li><li data-type='method'><a href="Model.html#getCount">getCount</a></li><li data-type='method'><a href="Model.html#read">read</a></li><li data-type='method'><a href="Model.html#remove">remove</a></li><li data-type='method'><a href="Model.html#removeAll">removeAll</a></li><li data-type='method'><a href="Model.html#update">update</a></li></ul></li><li><a href="Store.html">Store</a><ul class='methods'><li data-type='method'><a href="Store.html#drop">drop</a></li><li data-type='method'><a href="Store.html#find">find</a></li><li data-type='method'><a href="Store.html#findAll">findAll</a></li><li data-type='method'><a href="Store.html#remove">remove</a></li><li data-type='method'><a href="Store.html#save">save</a></li></ul></li><li><a href="Template.html">Template</a><ul class='methods'><li data-type='method'><a href="Template.html#clearCompletedButton">clearCompletedButton</a></li><li data-type='method'><a href="Template.html#itemCounter">itemCounter</a></li><li data-type='method'><a href="Template.html#show">show</a></li></ul></li><li><a href="View.html">View</a><ul class='methods'><li data-type='method'><a href="View.html#_bindItemEditCancel">_bindItemEditCancel</a></li><li data-type='method'><a href="View.html#_bindItemEditDone">_bindItemEditDone</a></li><li data-type='method'><a href="View.html#_clearCompletedButton">_clearCompletedButton</a></li><li data-type='method'><a href="View.html#_editItem">_editItem</a></li><li data-type='method'><a href="View.html#_editItemDone">_editItemDone</a></li><li data-type='method'><a href="View.html#_elementComplete">_elementComplete</a></li><li data-type='method'><a href="View.html#_itemId">_itemId</a></li><li data-type='method'><a href="View.html#_removeItem">_removeItem</a></li><li data-type='method'><a href="View.html#_setFilter">_setFilter</a></li><li data-type='method'><a href="View.html#bind">bind</a></li><li data-type='method'><a href="View.html#render">render</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">view.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*global qs, qsa, $on, $parent, $delegate */
+//(function (window) {
+	'use strict';
+
+
+	/**
+	 * Définit les valeurs par défaut du {@link Template}.
+	 * @constructor
+	 */
+	function View(template) {
+		this.template = template;
+
+		this.ENTER_KEY = 13;
+		this.ESCAPE_KEY = 27;
+
+		this.$todoList = qs('.todo-list');
+		this.$todoItemCounter = qs('.todo-count');
+		this.$clearCompleted = qs('.clear-completed');
+		this.$main = qs('.main');
+		this.$footer = qs('.footer');
+		this.$toggleAll = qs('.toggle-all');
+		this.$newTodo = qs('.new-todo');
+	}
+
+
+	/**
+	 * Supprime la Todo en fonction de l’ id.
+	 * @param {number} (id) L' ID de l' élément à supprimer.
+	*/
+	View.prototype._removeItem = function (id) {
+		var elem = qs('[data-id="' + id + '"]');
+
+		if (elem) {
+			this.$todoList.removeChild(elem);
+		}
+	};
+
+
+	/**
+	 * Masque les éléments terminés.
+	 * @param  {number} (completedCount) Le nombre d' élément coché.
+	 * @param  {bolean} (visible) True si visible, false sinon.
+	 */
+	View.prototype._clearCompletedButton = function (completedCount, visible) {
+		this.$clearCompleted.innerHTML = this.template.clearCompletedButton(completedCount);
+		this.$clearCompleted.style.display = visible ? 'block' : 'none';
+	};
+
+
+	/**
+	 * Indique la page actuelle.
+	 * @param {string} (currentPage) La page actuelle peut avoir les valeures
+	 *                               '' || active || completed.
+	 */
+	View.prototype._setFilter = function (currentPage) {
+		qs('.filters .selected').className = '';
+		qs('.filters [href="#/' + currentPage + '"]').className = 'selected';
+	};
+
+
+	/**
+	 * Test si l' élément' est terminé.
+	 * @param  {number} (id) L'ID de l'élément à tester.
+	 * @param  {bolean} (completed) Le statut de l' élément.
+	 */
+	View.prototype._elementComplete = function (id, completed) {
+		var listItem = qs('[data-id="' + id + '"]');
+
+		if (!listItem) {
+			return;
+		}
+
+		listItem.className = completed ? 'completed' : '';
+
+		// Valider un élément en cochant la case
+		qs('input', listItem).checked = completed;
+	};
+
+
+	/**
+	 * Permet l' édition d'un élément.
+	 * @param  {number} (id) L' ID de l' élément à éditer.
+	 * @param  {string} (title) Le contenu de la modification de l' élément.
+	 */
+	View.prototype._editItem = function (id, title) {
+		var listItem = qs('[data-id="' + id + '"]');
+
+		if (!listItem) {
+			return;
+		}
+
+		listItem.className = listItem.className + ' editing';
+
+		var input = document.createElement('input');
+		input.className = 'edit';
+
+		listItem.appendChild(input);
+		input.focus();
+		input.value = title;
+	};
+
+
+	/**
+	 * Remplace l' ancien élément par l' élément édité.
+	 * @param  {number} (id)    L' ID de l' élément à éditer.
+	 * @param  {string} (title) Le contenu de le la modification de l' élément.
+	 */
+	View.prototype._editItemDone = function (id, title) {
+		var listItem = qs('[data-id="' + id + '"]');
+
+		if (!listItem) {
+			return;
+		}
+
+		var input = qs('input.edit', listItem);
+		listItem.removeChild(input);
+
+		listItem.className = listItem.className.replace('editing', '');
+
+		qsa('label', listItem).forEach(function (label) {
+			label.textContent = title;
+		});
+	};
+
+
+	/**
+	 * Retourne les éléments dans le DOM.
+	 * @param  {string} (viewCmd)   La fonction active.
+	 * @param  {object} (parameter) Les paramètres actifs.
+	 */
+	View.prototype.render = function (viewCmd, parameter) {
+		var self = this;
+		var viewCommands = {
+			/**
+			 * Affiche les éléments
+			 */
+			showEntries: function () {
+				self.$todoList.innerHTML = self.template.show(parameter);
+			},
+			/**
+			 * Supprime l' élément
+			 */
+			removeItem: function () {
+				self._removeItem(parameter);
+			},
+			/**
+			 * Met à jour le compteur
+			 */
+			updateElementCount: function () {
+				self.$todoItemCounter.innerHTML = self.template.itemCounter(parameter);
+			},
+			/**
+			 * Affiche le bouton 'clearCompleted'
+			 */
+			clearCompletedButton: function () {
+				self._clearCompletedButton(parameter.completed, parameter.visible);
+			},
+			/**
+			 * Vérifie la visibilité d' élément
+			 */
+			contentBlockVisibility: function () {
+				self.$main.style.display = self.$footer.style.display = parameter.visible ? 'block' : 'none';
+			},
+			/**
+			 * Affiche tous les éléments
+			 */
+			toggleAll: function () {
+				self.$toggleAll.checked = parameter.checked;
+			},
+			/**
+			 * Filtre les éléments
+			 */
+			setFilter: function () {
+				self._setFilter(parameter);
+			},
+			/**
+			 * Vide le contenu du nouveau todo dans l' input
+			 */
+			clearNewTodo: function () {
+				self.$newTodo.value = '';
+			},
+			/**
+			 * Affiche les éléments avec le statut completed
+			 */
+			elementComplete: function () {
+				self._elementComplete(parameter.id, parameter.completed);
+			},
+			/**
+			 * Permet d' éditer un élément
+			 */
+			editItem: function () {
+				self._editItem(parameter.id, parameter.title);
+			},
+			/**
+			 * Sauvegarde l' édition d' un élément
+			 */
+			editItemDone: function () {
+				self._editItemDone(parameter.id, parameter.title);
+			}
+		};
+
+		viewCommands[viewCmd]();
+	};
+
+
+	/**
+	 * Ajoute un ID à l' élément.
+	 * @param  {object} (element) L' élément actif.
+	 */
+	View.prototype._itemId = function (element) {
+		var li = $parent(element, 'li');
+		return parseInt(li.dataset.id, 10);
+	};
+
+
+	/**
+	 * EventListener sur la validation de l' édition d'un élément.
+	 * @param  {function} (handler) Un callback exécuté sous condition.
+	 */
+	View.prototype._bindItemEditDone = function (handler) {
+		var self = this;
+		$delegate(self.$todoList, 'li .edit', 'blur', function () {
+			if (!this.dataset.iscanceled) {
+				handler({
+					id: self._itemId(this),
+					title: this.value
+				});
+			}
+		});
+
+		$delegate(self.$todoList, 'li .edit', 'keypress', function (event) {
+			/**
+			 * Retire le curseur du bouton lorsque l'on appuie sur Entrée.
+			 */
+			if (event.keyCode === self.ENTER_KEY) {
+				this.blur();
+			}
+		});
+	};
+
+
+	/**
+	 * EventListener sur l' annulation de l' édition d'un élément.
+	 * @param  {function} (handler) Un callback exécuté sous condition.
+	 */
+	View.prototype._bindItemEditCancel = function (handler) {
+		var self = this;
+		$delegate(self.$todoList, 'li .edit', 'keyup', function (event) {
+			if (event.keyCode === self.ESCAPE_KEY) {
+				this.dataset.iscanceled = true;
+				this.blur();
+
+				handler({id: self._itemId(this)});
+			}
+		});
+	};
+
+
+	/**
+	 * Fait le lien entre les méthodes du {@link Controller} et les éléments de {@link View}.
+	 * @param  {function} (event)   L' évenement actif.
+	 * @param  {function} (handler) Un callback exécuté sous condition.
+	 */
+	View.prototype.bind = function (event, handler) {
+		var self = this;
+		if (event === 'newTodo') {
+			/**
+			 * $on : ajoute eventListener.
+			 * passe self.$newTodo.value au handler (contenu de l'input).
+			 */
+			$on(self.$newTodo, 'change', function () { //
+				handler(self.$newTodo.value); //
+			});
+
+		} else if (event === 'removeCompleted') {
+			$on(self.$clearCompleted, 'click', function () {
+				handler();
+			});
+
+		} else if (event === 'toggleAll') {
+			$on(self.$toggleAll, 'click', function () {
+				handler({completed: this.checked});
+			});
+
+		} else if (event === 'itemEdit') {
+			$delegate(self.$todoList, 'li label', 'dblclick', function () {
+				handler({id: self._itemId(this)});
+			});
+
+		} else if (event === 'itemRemove') {
+			$delegate(self.$todoList, '.destroy', 'click', function () {
+				handler({id: self._itemId(this)});
+			});
+
+		} else if (event === 'itemToggle') {
+			$delegate(self.$todoList, '.toggle', 'click', function () {
+				handler({
+					id: self._itemId(this),
+					completed: this.checked
+				});
+			});
+
+		} else if (event === 'itemEditDone') {
+			self._bindItemEditDone(handler);
+
+		} else if (event === 'itemEditCancel') {
+			self._bindItemEditCancel(handler);
+		}
+	};
+
+
+	// Exporte vers Window
+	window.app = window.app || {};
+	window.app.View = View;
+//}(window));
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 23 2018 14:45:27 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

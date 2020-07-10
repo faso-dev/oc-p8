@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>helpers.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="App.html">App</a><ul class='methods'><li data-type='method'><a href="App.html#~setView">setView</a></li></ul></li><li><a href="App-Todo.html">Todo</a></li><li><a href="Controller.html">Controller</a><ul class='methods'><li data-type='method'><a href="Controller.html#_filter">_filter</a></li><li data-type='method'><a href="Controller.html#_updateCount">_updateCount</a></li><li data-type='method'><a href="Controller.html#_updateFilterState">_updateFilterState</a></li><li data-type='method'><a href="Controller.html#addItem">addItem</a></li><li data-type='method'><a href="Controller.html#removeCompletedItems">removeCompletedItems</a></li><li data-type='method'><a href="Controller.html#removeItem">removeItem</a></li><li data-type='method'><a href="Controller.html#setView">setView</a></li><li data-type='method'><a href="Controller.html#showActive">showActive</a></li><li data-type='method'><a href="Controller.html#showAll">showAll</a></li><li data-type='method'><a href="Controller.html#showCompleted">showCompleted</a></li><li data-type='method'><a href="Controller.html#toggleAll">toggleAll</a></li><li data-type='method'><a href="Controller.html#toggleComplete">toggleComplete</a></li></ul></li><li><a href="Helper.html">Helper</a><ul class='methods'><li data-type='method'><a href="Helper.html#$delegate">$delegate</a></li><li data-type='method'><a href="Helper.html#$on">$on</a></li><li data-type='method'><a href="Helper.html#$parent">$parent</a></li><li data-type='method'><a href="Helper.html#qs">qs</a></li><li data-type='method'><a href="Helper.html#qsa">qsa</a></li></ul></li><li><a href="Model.html">Model</a><ul class='methods'><li data-type='method'><a href="Model.html#create">create</a></li><li data-type='method'><a href="Model.html#getCount">getCount</a></li><li data-type='method'><a href="Model.html#read">read</a></li><li data-type='method'><a href="Model.html#remove">remove</a></li><li data-type='method'><a href="Model.html#removeAll">removeAll</a></li><li data-type='method'><a href="Model.html#update">update</a></li></ul></li><li><a href="Store.html">Store</a><ul class='methods'><li data-type='method'><a href="Store.html#drop">drop</a></li><li data-type='method'><a href="Store.html#find">find</a></li><li data-type='method'><a href="Store.html#findAll">findAll</a></li><li data-type='method'><a href="Store.html#remove">remove</a></li><li data-type='method'><a href="Store.html#save">save</a></li></ul></li><li><a href="Template.html">Template</a><ul class='methods'><li data-type='method'><a href="Template.html#clearCompletedButton">clearCompletedButton</a></li><li data-type='method'><a href="Template.html#itemCounter">itemCounter</a></li><li data-type='method'><a href="Template.html#show">show</a></li></ul></li><li><a href="View.html">View</a><ul class='methods'><li data-type='method'><a href="View.html#_bindItemEditCancel">_bindItemEditCancel</a></li><li data-type='method'><a href="View.html#_bindItemEditDone">_bindItemEditDone</a></li><li data-type='method'><a href="View.html#_clearCompletedButton">_clearCompletedButton</a></li><li data-type='method'><a href="View.html#_editItem">_editItem</a></li><li data-type='method'><a href="View.html#_editItemDone">_editItemDone</a></li><li data-type='method'><a href="View.html#_elementComplete">_elementComplete</a></li><li data-type='method'><a href="View.html#_itemId">_itemId</a></li><li data-type='method'><a href="View.html#_removeItem">_removeItem</a></li><li data-type='method'><a href="View.html#_setFilter">_setFilter</a></li><li data-type='method'><a href="View.html#bind">bind</a></li><li data-type='method'><a href="View.html#render">render</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">helpers.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*global NodeList */
+//(function (window) {
+	'use strict';
+
+/**
+ * fonctions globales
+ * @constructor
+ */
+function Helper() {
+
+	/**
+	 * Récupére les éléments par le sélecteur CSS. qs = querySelector
+	 * Utiliser dans {@link View}.
+	 */
+	Helper.prototype.qs = function (selector, scope) {
+		return (scope || document).querySelector(selector);
+	};
+
+
+	/**
+	 * Récupére les éléments par le sélecteur CSS. qsa = querySelectorAll
+	 * Utiliser dans {@link View}.
+	 */
+	Helper.prototype.qsa = function (selector, scope) {
+		return (scope || document).querySelectorAll(selector);
+	};
+
+
+	/**
+	 * Encapsule l'addEventListener.
+	 * Utiliser dans {@link View}.
+	 * Utiliser dans {@link App}.
+	 * @param {object} (target)  La cible.
+	 * @param {bolean} (type) Focus ou Blur.
+  	 * @param {function} (callback) La fonction de rappel.
+	 * @param {object} (useCapture) L' élément capturé.
+	 */
+	Helper.prototype.$on = function (target, type, callback, useCapture) {
+		target.addEventListener(type, callback, !!useCapture);
+	};
+
+
+	/**
+	 * Délègue un eventListener à un parent.
+	 * Utiliser dans {@link View}.
+	 * @param  {object} (target)  La cible.
+	 * @param  {function} (selector) Vérifie qu'il y a match entre enfants et parents.
+	 * @param {bolean} (type) Le type d' event.
+	 * @param  {function} (handler)  Un callback exécuté si il y a une certaine condition.
+	 */
+	Helper.prototype.$delegate = function (target, selector, type, handler) {
+		function dispatchEvent(event) {
+			var targetElement = event.target; // cible l' élément
+			var potentialElements = window.qsa(selector, target); // qsa sur élément du même type
+			var hasMatch = Array.prototype.indexOf.call(potentialElements, targetElement) >= 0; // est-ce que dans potentialElements il y a targetElement , si >= o il y a un index et ça match
+
+			if (hasMatch) {
+				/**
+				 * si on a un élément hasMatch on appel le gestionnaire sur l' élément cible.
+				 */
+				handler.call(targetElement, event);
+			}
+		}
+		/**
+		 * useCapture peut être de type blur ou focus.
+		 * @type {bolean}
+		 */
+		var useCapture = type === 'blur' || type === 'focus';
+		/**
+		 * $on ajoute un eventListener
+		 */
+		window.$on(target, type, dispatchEvent, useCapture);
+	};
+
+
+	/**
+	 * Recherche le parent de l'élément avec le nom de tag : $parent(qs('a'), 'div');
+	 * Utiliser dans {@link View}.
+	 * @param {object} (element) L' élément actif.
+	 * @param {string} (tagName) Le tagName de l' élément.
+	 */
+	Helper.prototype.$parent = function (element, tagName) {
+		if (!element.parentNode) {
+			return; // si pas d' élément parent il ne se passe rien
+		}
+		if (element.parentNode.tagName.toLowerCase() === tagName.toLowerCase()) { // si le tagName de l' élément parent en minuscule est strictement égale à notre tagName
+			return element.parentNode; // on retourne notre élément parent
+		}
+		return window.$parent(element.parentNode, tagName);
+	};
+
+
+	/**
+	 * Autorise les boucle sur les nœuds : qsa('.foo').forEach(function () {})
+	 */
+	NodeList.prototype.forEach = Array.prototype.forEach; // parcourir chaque noeuds revient à parcourir chaque tableau
+
+}
+
+//})(window);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 23 2018 14:45:27 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
