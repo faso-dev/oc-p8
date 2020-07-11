@@ -145,15 +145,14 @@ Store.prototype.remove => les deux boucles peuvent être remplacées par des fon
    	}
    	
 > par ses lignes ci-dessous:
-
-    ```js 
+```js
     let todoIndex = todos.findIndex(function (todo) {
     	return todo.id === id
     })
     if (-1 !== todoIndex){
     	todos.splice(todoIndex, 1)
     }
-    ```
+```
 
 ## _Etape 2 : où sont les tests ?!_
 
