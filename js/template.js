@@ -2,6 +2,7 @@
 (function (window) {
 	'use strict';
 
+
 	var htmlEscapes = {
 		'&': '&amp;',
 		'<': '&lt;',
@@ -10,6 +11,7 @@
 		'\'': '&#x27;',
 		'`': '&#x60;'
 	};
+
 
 	var escapeHtmlChar = function (chr) {
 		return htmlEscapes[chr];
@@ -24,31 +26,27 @@
 			: string;
 	};
 
+
 	/**
-	 * Sets up defaults for all the Template methods such as a default template
-	 *
+	 * Définit les valeurs par défaut du template
 	 * @constructor
 	 */
 	function Template() {
 		this.defaultTemplate
-		=	'<li data-id="{{id}}" class="{{completed}}">'
-		+		'<div class="view">'
-		+			'<input class="toggle" type="checkbox" {{checked}}>'
-		+			'<label>{{title}}</label>'
-		+			'<button class="destroy"></button>'
-		+		'</div>'
-		+	'</li>';
+			=	'<li data-id="{{id}}" class="{{completed}}">'
+			+		'<div class="view">'
+			+			'<input class="toggle" type="checkbox" {{checked}}>'
+			+			'<label>{{title}}</label>'
+			+			'<button class="destroy"></button>'
+			+		'</div>'
+			+	'</li>';
 	}
 
 	/**
-	 * Creates an <li> HTML string and returns it for placement in your app.
-	 *
-	 * NOTE: In real life you should be using a templating engine such as Mustache
-	 * or Handlebars, however, this is a vanilla JS example.
-	 *
-	 * @param {object} data The object containing keys you want to find in the
-	 *                      template to replace.
-	 * @returns {string} HTML String of an <li> element
+	 * Créé une chaîne HTML <li> et la retourne pour la placer dans l'application.
+	 * @param {object} (data) L'objet contenant les clés que vous souhaitez trouver
+	 *                        dans le modèle à remplacer.
+	 * @returns {string} Template HTML correspondant à l' élément <li>
 	 *
 	 * @example
 	 * view.show({
@@ -82,23 +80,23 @@
 		return view;
 	};
 
+
 	/**
-	 * Displays a counter of how many to dos are left to complete
-	 *
-	 * @param {number} activeTodos The number of active todos.
-	 * @returns {string} String containing the count
+	 * Affiche un compteur du nombre de tâches à terminer.
+	 * @param {number} (activeTodos) Le nombre de todos actifs.
+	 * @returns {string} Chaîne contenant le nombre.
 	 */
 	Template.prototype.itemCounter = function (activeTodos) {
-		var plural = activeTodos === 1 ? '' : 's';
+		var plural = activeTodos > 1 ? '' : 's';
 
 		return '<strong>' + activeTodos + '</strong> item' + plural + ' left';
 	};
 
+
 	/**
-	 * Updates the text within the "Clear completed" button
-	 *
-	 * @param  {[type]} completedTodos The number of completed todos.
-	 * @returns {string} String containing the count
+	 * Met à jour le texte dans le bouton "Clear completed".
+	 * @param  {number} (completedTodos) Le nombre de todos complété.
+	 * @returns {string} Chaîne contenant le nombre.
 	 */
 	Template.prototype.clearCompletedButton = function (completedTodos) {
 		if (completedTodos > 0) {
@@ -108,7 +106,8 @@
 		}
 	};
 
-	// Export to window
+
+	// Exporte vers Window
 	window.app = window.app || {};
 	window.app.Template = Template;
 })(window);

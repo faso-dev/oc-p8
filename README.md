@@ -83,18 +83,85 @@ Store.prototype.save
 
 Controller.prototype.removeItem => la boucle forEach est inadaptée.
 
-> Le console.log donne une mauvaise information, il convient de mettre le console.log après le render plutôt qu' avant et de surrpimer la boucle forEach inutile.
+> Cette instrustion est inadaptée et n'a aucun sens
+
+    var items;
+   	self.model.read(function(data) {
+   		items = data;
+   	});
+> En optimisant le mieux possible nous obtenons une fonction plus performante
 
 	Controller.prototype.removeItem = function (id) {
 		var self = this;
-		var items;
-		self.model.read(function(data) {
-			items = data;
-		});
-
 		self.model.remove(id, function () {
 			self.view.render('removeItem', id);
-			console.log("Element with ID: " + id + " has been removed.");
+		});
+
+		self._filter();
+	};
+
+
+
+#### 3. amélioration : [__store.js__](./js/store.js)
+
+Store.prototype.save => les deux boucles peuvent être remplacées par des fonctions natives
+> Par exemple on peut remplacer ces boucles: 
+
+    for (var i = 0; i < todos.length; i++) {
+   	    if (todos[i].id === id) {
+   		    for (var key in updateData) {
+   	      		todos[i][key] = updateData[key];
+   		    }
+   		    break;
+   	    }
+    }
+> par ses lignes ci-dessous:
+
+    let todoIndex = todos.findIndex(function (todo) {
+    	return todo.id === id
+    })
+    if (-1 !== todoIndex){
+    	todos[todoIndex] = Object.assign(todos[todoIndex], updateData)
+    }
+
+#### 3. amélioration : [__store.js__](./js/store.js)
+
+Store.prototype.remove => les deux boucles peuvent être remplacées par des fonctions natives
+> Par exemple on peut remplacer ces boucles: 
+
+    for (var i = 0; i < todos.length; i++) {
+   		if (todos[i].id == id) {
+   			todoId = todos[i].id;
+   		}
+   	}
+   
+   	for (var i = 0; i < todos.length; i++) {
+   		if (todos[i].id == todoId) {
+   			todos.splice(i, 1);
+   		}
+   	}
+   	
+> par ses lignes ci-dessous:
+
+    let todoIndex = todos.findIndex(function (todo) {
+    	return todo.id === id
+    })
+    if (-1 !== todoIndex){
+    	todos.splice(todoIndex, 1)
+    }
+    
+> Cette instrustion est inadaptée et n'a aucun sens
+
+    var items;
+   	self.model.read(function(data) {
+   		items = data;
+   	});
+> En optimisant le mieux possible nous obtenons une fonction plus performante
+
+	Controller.prototype.removeItem = function (id) {
+		var self = this;
+		self.model.remove(id, function () {
+			self.view.render('removeItem', id);
 		});
 
 		self._filter();
