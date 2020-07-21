@@ -1,104 +1,103 @@
-# Documentation utilisateur de notre application Todos
-
-Notre application a pour objectif de vous permettre très facilement de créer des todos-list.
-
-Pour ce faire nous avons élaboré des fonctions permettant de créer, de modifier ou supprimer des éléments.
-
-Notre application doit être utilisable par tous, de 7 à 77 ans, sur tout type de support (ordinateur, tablette, smartphone,…).
-
-Nous vous proposons donc de voir comment réaliser les actions suivantes :
-1. créer un todo
-2. modifier un todo
-3. modifier l’ état d’ avancement d’un todo
-4. voir l’état de nos todos
-5. supprimer un ou plusieurs  todos
+# Documentation utilisateur de notre application TodoApp
 
 
-## 1. Créer un Todo
 
-Notre application se présente de la façon suivante.
+Se rappeler des tâches que l’on doit faire pour sa journée de demain est toujours une casse tête pour chacun de nous. 
 
-![img](doc_utilisateur_creer_todo.png)
+Il devient alors impérativement nécessaire pour nous d’avoir un support sur lequel nous pouvons lister l’ensemble de nos activités ou tâches à faire pour la prochaine journée.
+ 
+C’est dans ce contexte que nous avons mis à votre disposition un support numérique appelé TodoApp, vous permettant de retrouver en un temps record la prochaine tâche ou activité que vous devez réaliser. 
 
-Pour créer un Todo cliquer dans « what needs to be done ? » et rédiger votre todo.
+Ci-dessous, notre guide utilisateur pour vous aider à prendre en main notre application.
+1. Créer une tâche
+2. Modifier une tâche
+3. Modifier l’ état d’ avancement d’une tâche
+4. Voir l’état de vos tâches
+5. Supprimer une ou plusieurs  tâches
 
-Appuyer sur _entrée_ pour enregistrer le todo.
+Trève de bavardage, prenez en main dès maintenant TodoApp :
 
-Vous avez créé votre premier todo.
+## 1. Créer une tâche
 
-![img](doc_utilisateur_1er_todo.png)
+L’interface de notre application ressemble à ceci lors du premier lancement.
 
-Votre todo apparaît dans la liste des todos.
+![img](assets/doc_utilisateur_interface_accueil.png)
+
+Pour créer une tâche cliquer dans « Votre prochaine tâche ? » et rédiger votre tâche.
+
+Appuyer sur la touche _ENTER_ du clavier pour enregistrer la tâche.
+
+Vous avez créé votre première tâche.
+
+![img](assets/doc_utilisateur_1er_tache.png)
+
+Votre taĉhe apparaît dans la liste des tâches.
 
 Plusieurs éléments sont apparus :
-+ un icône à gauche de « what needs to be done ? »
-+ une indication du nombre de todos, ici _1 item left_
-+ un onglet __all__
-+ un onglet __active__
-+ un onglet __completed__
++ un icône à gauche de « Votre prochaine tâche ? »
++ une indication du nombre de todos, ici __1 tâche reste__
++ un onglet __Toute les tâches__
++ un onglet __Active__
++ un onglet __Réalisée(s)__
 
-Voyons maintenant comment modifier un todo.
+Voyons maintenant comment modifier une tâche.
 
 
-## 2. Modifier un Todo
+## 2. Modifier une tâche
 
-![img](doc_utilisateur_edit_todo.png)
+![img](assets/doc_utilisateur_edit_tache.png)
 
-Afin d’ avoir l’ application la plus simple à utiliser nous avons choisit de permettre l’ édition tout simplement en double cliquant dans le todo à modifier directement.
+Un double clique sur une tâche suffit à activer le mode édition sur celle-ci afin de pourvoir la modifier directement.
 
-Taper sur _Entrée_ pour valider la modification ou sur _échap_ pour l' annuler.
-
-Le todo que vous modifiez est encadré.
+Taper sur la touche __ENTER__ du clavier pour valider la modification ou sur la touche __ESC__ du clavier pour l' annuler.
 
 Voyons  maintenant comment modifier l’ état d’ avancement d’un todo.
 
 
-## 3. Modifier l’ état d’ avancement d’un todo
+## 3. Modifier l’ état d’ avancement d’une tâche
 
-![img](doc_utilisateur_avancement_todo.png)
+![img](assets/doc_utilisateur_avancement_todo.png)
 
-Nous avons créé 3 todos, notre second todo est terminé.
+Pour signifier q'une tâche est terminée, il suffit de cliquer dans le cercle à gauche de la tâche.
 
-Pour signifier que votre todo est terminé il suffit de cliquer dans le cercle à gauche du todo.
+Une fois fait, la tâche est barrée et un bouton __Clear completed__ apparaît en bas à droite. 
 
-Une fois fait le todo est barré et un bouton __Clear completed__ apparaît en bas à droite. 
-
-Ce bouton sert à effacer le todo que l’on a indiqué comme terminé.
+Ce bouton sert à effacer les tâches que l’on a indiqué comme terminée.
 
 
 ## 4. Voir l’état de nos todos
 
-1. ![img](doc_utilisateur_all_todo.png)
+1. ![img](assets/doc_utilisateur_all_tache.png)
 
-Le bouton __All__ nous montre l’ ensemble des Todos quelques soit leur état.
+Le bouton __Toutes les tâches__ nous montre l’ ensemble des tâches quelques soit leur état.
 
-2. ![img](doc_utilisateur_active_todo.png)
+2. ![img](assets/doc_utilisateur_active_tache.png)
 
-Le bouton __Active__ nous montre les Todos en cours.
+Le bouton __Active__ nous montre les tâches en cours.
 
-3. ![img](doc_utilisateur_completed_todo.png)
+3. ![img](assets/doc_utilisateur_completed_tache.png)
 
-Le bouton __Completed__ quand à lui nous montre les todos que nous avons terminé.
+Le bouton __Réalisée(s)__ quand à lui nous montre les tâches que nous avons terminée.
 
 
 ## 5. Supprimer un ou plusieurs todos
 
-![img](doc_utilisateur_clearcompleted_todo.png)
+![img](assets/doc_utilisateur_clearcompleted_tache.png)
 
-Pour supprimer définitivement nos todos terminés, ceux que l’on retrouve dans l’onglet __Completed__, il suffit de cliquer sur le bouton __clear completed__ .
+Pour supprimer définitivement nos tâches réalisées, il suffit de cliquer sur le bouton __clear completed__ .
 
-Cette action effacera définitivement les todos en question.
+Cette action effacera définitivement les tâches réalisées.
 
 
-![img](doc_utilisateur_croix_todo.png)
+![img](assets/doc_utilisateur_croix_tache.png)
 
-Nous pouvons supprimer directement les todos un par un à la volée sans passer par l’onglet __Completed__. 
+Nous pouvons supprimer directement les tâches une par une sans passer par le bouton __clear completed__. 
 
-Pour se faire lorsque l’on survole un todo avec notre souris une croix à droite apparaît.
+Pour se faire lorsque l’on survole une tâche avec notre souris, une croix à droite apparaît.
 
-Cliquer sur la croix supprime définitivement le todo en question. 
+Un clique sur la croix supprime définitivement la tâche en question. 
 
-Pas de retour en arrière possible.
+Cette action est irréverssible.
 
 
 

@@ -87,9 +87,10 @@
 	 * @returns {string} Chaîne contenant le nombre.
 	 */
 	Template.prototype.itemCounter = function (activeTodos) {
-		var plural = activeTodos > 1 ? '' : 's';
-
-		return '<strong>' + activeTodos + '</strong> item' + plural + ' left';
+		let plural = activeTodos > 1 ? 's' : '',
+			verb = activeTodos > 1 ? 'nt' : ''
+		;
+		return '<strong>' + activeTodos + '</strong> tâche' + plural + ' reste' + verb;
 	};
 
 

@@ -2,7 +2,6 @@
 (function (window) {
 	'use strict';
 
-
 	/**
 	 * Crée un nouvel objet de stockage côté client et crée un espace vide aucun stockage existe.
 	 * @constructor
@@ -43,7 +42,7 @@
 			return;
 		}
 
-		var todos = JSON.parse(localStorage[this._dbName]).todos;
+		var todos = JSON.parse(localStorage[this._dbName]);
 
 		callback.call(this, todos.filter(function (todo) {
 			for (var q in query) {
@@ -58,11 +57,11 @@
 
 	/**
 	 * Récupére toutes les données.
-	 * @param {function} (callback) La fonction de rappel lors de la récupération des données.
+	 * @param {Function} (callback) La fonction de rappel lors de la récupération des données.
 	 */
 	Store.prototype.findAll = function (callback) {
 		callback = callback || function () {};
-		callback.call(this, JSON.parse(localStorage[this._dbName]).todos);
+		callback.call(this, JSON.parse(localStorage[this._dbName]));
 	};
 
 
@@ -75,7 +74,7 @@
 	 *                      à mettre à jour
 	 */
 	Store.prototype.save = function (updateData, callback, id) {
-		var todos = JSON.parse(localStorage[this._dbName]).todos;
+		var todos = JSON.parse(localStorage[this._dbName]);
 
 		callback = callback || function () {};
 
@@ -113,7 +112,7 @@
 	 * @param {function} (callback) Le callback après l'enregistrement.
 	 */
 	Store.prototype.remove = function (id, callback) {
-		var todos = JSON.parse(localStorage[this._dbName]).todos;
+		var todos = JSON.parse(localStorage[this._dbName]);
 		let todoIndex = todos.findIndex(function (todo) {
 			return todo.id === id
 		})
