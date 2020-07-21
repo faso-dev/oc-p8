@@ -217,5 +217,6 @@ Pour voir plus en détails les tests aller dans le fichier [__ControllerSpec.js_
 
 ## _Etape 4 : améliorez le projet_
 
+Ouvrir la _documentation utilisateur_ dans votre navigateur : [__documentation utilisateur__](./livrable/doc_utilisateur/doc_utilisateur.md)
 
 
