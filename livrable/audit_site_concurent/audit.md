@@ -123,11 +123,18 @@ OK
 Fonctionnalité que l’on pourrait éventuellement intégré à notre application :
 * temporalité
 * catégories de liste
+* La persistance dans une base de donnée des tâches
+* La personalisation des profiles afin de mieux gérer les tâches
+* Permettre le partage des tâches entre utilisateur
+* Ajouter une otpion pour rechercher une tâche
+* Ne plus autoriser l'édition des tâches complétées
+* Permettre d'attribuer le temps qu'il faut pour réaliser une tâche
+* Ajouter une option de priorité pour les tâches
 
 ### 5- Résumé
 ##### Application de notre concurrent :
 1. Lente, pas optimisé
-2. pas orienté PWA
+2. Pas orienté PWA
 3. Accessibilité correcte
 4. Design discutable, quelques fonctionnalités intéressantes
 
@@ -135,6 +142,13 @@ Fonctionnalité que l’on pourrait éventuellement intégré à notre applicati
 1. Rapide, optimisé et performante
 2. PWA améliorable, axe d’ amélioration évident
 3. Bonne accessibilité, amélioration via `label` et contrastes pour que ce soit parfait
-4. La temporalité et les catégories de listes pourraient être intégrés ?
+4. La temporalité et les catégories de listes pourraient être intégrés ?*
+5. La persistance dans une base de donnée des tâches
+6. La personalisation des profiles afin de mieux gérer les tâches
+7. Permettre le partage des tâches entre utilisateur
+8. Ajouter une otpion pour rechercher une tâche
+9. Ne plus autoriser l'édition des tâches complétées
+10. Permettre d'attribuer le temps qu'il faut pour réaliser une tâche
+11. Ajouter une option de priorité pour les tâches
 
 

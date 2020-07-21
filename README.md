@@ -10,7 +10,7 @@ Un audit de performance est attendu sur un site concurrent à notre application,
 
 Enfin une documentation utilisateur ainsi qu'une documentation technique sont attendues.
 
-![img](screenshotP8.png)
+![img](livrable/doc_utilisateur/assets/doc_utilisateur_interface_accueil.png)
 
 
 Recap des  [__fichiers et fonctions__](./livrable/function_recap.pdf) de notre appli
