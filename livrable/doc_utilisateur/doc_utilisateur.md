@@ -67,29 +67,26 @@ Ce bouton sert à effacer les tâches que l’on a indiqué comme terminée.
 
 ## 4. Voir l’état de nos todos
 
-1. ![img](assets/doc_utilisateur_all_tache.png)
+1. Le bouton __Toutes les tâches__ nous montre l’ ensemble des tâches quelques soit leur état.
 
-Le bouton __Toutes les tâches__ nous montre l’ ensemble des tâches quelques soit leur état.
+![img](assets/doc_utilisateur_all_tache.png)
 
-2. ![img](assets/doc_utilisateur_active_tache.png)
+2. Le bouton __Active__ nous montre les tâches en cours.
 
-Le bouton __Active__ nous montre les tâches en cours.
+![img](assets/doc_utilisateur_active_tache.png)
 
-3. ![img](assets/doc_utilisateur_completed_tache.png)
+3. Le bouton __Réalisée(s)__ quand à lui nous montre les tâches que nous avons terminée.
 
-Le bouton __Réalisée(s)__ quand à lui nous montre les tâches que nous avons terminée.
+![img](assets/doc_utilisateur_completed_tache.png)
 
 
 ## 5. Supprimer un ou plusieurs todos
-
-![img](assets/doc_utilisateur_clearcompleted_tache.png)
 
 Pour supprimer définitivement nos tâches réalisées, il suffit de cliquer sur le bouton __clear completed__ .
 
 Cette action effacera définitivement les tâches réalisées.
 
-
-![img](assets/doc_utilisateur_croix_tache.png)
+![img](assets/doc_utilisateur_clearcompleted_tache.png)
 
 Nous pouvons supprimer directement les tâches une par une sans passer par le bouton __clear completed__. 
 
@@ -98,6 +95,9 @@ Pour se faire lorsque l’on survole une tâche avec notre souris, une croix à 
 Un clique sur la croix supprime définitivement la tâche en question. 
 
 Cette action est irréverssible.
+
+![img](assets/doc_utilisateur_croix_tache.png)
+
 
 
 
