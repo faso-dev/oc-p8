@@ -15,14 +15,16 @@ Via Wappalyzer nous voyons la présence des éléments suivants sur le site :
 
 
 ### 2- Utilisation des outils du navigateur Chrome
-L’ audit à été réalisé avec les outils fournis par la console de notre navigateur, dans ce cas Chrome Version 64.0.3282.119 de Google.
+L’ audit à été réalisé avec les outils fournis par
+notre navigateur. Il s'agit du navigateur Chrome Version 84.0.4147.89 (Build officiel) (64 bits) de Google.
 
 #### 2-1- Outil « network »
 
-![img](audit_network.png)
+![img](livrable/audit_site_concurent/assets/audit_network.png)
 
-L’ affichage complet de la page prend 6,49 secs.
-Les différentes image prennent un peu de temps à charger, amélioration possible ici.
+L’ affichage complet de la page du concurent prend 5,27 secs.
+L’ affichage complet du notre prend 127ms.
+On peut dire que nous avons une longueur d'avance sur ce point sur notre concurent.
 
 ##### 1,88 secondes pour ce visuel :
 
