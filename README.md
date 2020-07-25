@@ -217,7 +217,8 @@ Ouvrir l' __audit de performance__ dans votre navigateur : [__audit de performan
 
 ## __Etape 4 : améliorez le projet__
 
-
 Ouvrir la _documentation utilisateur_ dans votre navigateur : [__documentation utilisateur__](./livrable/doc_utilisateur/doc_utilisateur.md)
+
+Ouvrir la _documentation technique_ dans votre navigateur : [__documentation utilisateur__](./livrable/doc_utilisateur/doc_utilisateur.md)
 
 
