@@ -59,7 +59,7 @@ Pareil pour jQuery-ui qui n'a même pas 30% d'usage.
 ![img](assets/audit_coverage_unused_jquery_ui.png)
 
 #### 2-2- Outil « audit »
-4 Catégories :
+Notre audit est basé sur 3 catégorie:
 * Performance
 * Accessibilité
 * Bonnes pratiques
