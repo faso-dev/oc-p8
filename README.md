@@ -102,8 +102,8 @@ Controller.prototype.removeItem => la boucle forEach est inadaptée.
 
 		self._filter();
 	};
-```
 
+```
 
 #### 3. amélioration : [__store.js__](./js/store.js)
 
@@ -211,11 +211,12 @@ Pour voir plus en détails les tests aller dans le fichier [__ControllerSpec.js_
 	})
 ```
 
-## _Etape 3 : optimisez la performance du site [todolistme.net](http://todolistme.net/)_
+## __Etape 3 : optimisez la performance du site [todolistme.net](http://todolistme.net/)__
 
+Ouvrir l' __audit de performance__ dans votre navigateur : [__audit de performance__](./livrable/audit_site_concurent/audit.md)
 
+## __Etape 4 : améliorez le projet__
 
-## _Etape 4 : améliorez le projet_
 
 Ouvrir la _documentation utilisateur_ dans votre navigateur : [__documentation utilisateur__](./livrable/doc_utilisateur/doc_utilisateur.md)
 
