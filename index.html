@@ -2,6 +2,7 @@
 <html lang="en" data-framework="javascript">
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>To-do list app</title>
 		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
 		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
@@ -9,11 +10,11 @@
 	<body>
 		<section class="todoapp">
 			<header class="header">
-				<h1>todos</h1>
-				<input class="new-todo" placeholder="What needs to be done?" autofocus>
+				<h1>TodoApp</h1>
+				<input class="new-todo" placeholder="Votre prochaine tâche?" autofocus>
 			</header>
 			<section class="main">
-				<input class="toggle-all" type="checkbox">
+				<input id="toggle-all" class="toggle-all" type="checkbox">
 				<label for="toggle-all">Mark all as complete</label>
 				<ul class="todo-list"></ul>
 			</section>
@@ -21,22 +22,26 @@
 				<span class="todo-count"></span>
 				<ul class="filters">
 					<li>
-						<a href="#/" class="selected">All</a>
+						<a href="#/" class="selected">Toute les tâches</a>
 					</li>
 					<li>
 						<a href="#/active">Active</a>
 					</li>
 					<li>
-						<a href="#/completed">Completed</a>
+						<a href="#/completed">Réalisée(s)</a>
 					</li>
 				</ul>
-				<button class="clear-completed">Clear completed</button>
+				<button class="clear-completed"></button>
 			</footer>
 		</section>
 		<footer class="info">
-			<p>Double-click to edit a todo</p>
-			<p>Created by Oscar Godson</p>
-			<p>Refactored by Christoph Burgmer</p>
+			<p>
+				Entrez votre tâche dans la zone d'édition et cliquez sur la touche
+				<strong>ENTER</strong> du clavier pour enregistrer
+			</p>
+			<p>Double-cliquez sur une tâche pour l'éditer</p>
+			<p>Créé par Oscar Godson</p>
+			<p>Améliorer par S.C Jerôme Onadja</p>
 		</footer>
 		<script src="node_modules/todomvc-common/base.js"></script>
 		<script src="js/helpers.js"></script>

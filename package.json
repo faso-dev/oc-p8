@@ -5,6 +5,11 @@
     "todomvc-app-css": "^2.0.1"
   },
   "devDependencies": {
-    "jasmine-core": "^2.0.0"
+    "docdash": "^1.2.0",
+    "jasmine-core": "^2.0.0",
+    "jsdoc": "^3.6.4"
+  },
+  "scripts": {
+    "doc": "jsdoc -c jsdoc.json"
   }
 }
