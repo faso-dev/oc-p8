@@ -11,7 +11,7 @@ Cette application permet de faire plusieurs choses :
 
 Via Wappalyzer nous voyons la présence des éléments suivants sur le site :
 
-![img](audit_wappalyzer.png)
+![img](assets/audit_wappalyzer.png)
 
 
 ### 2- Utilisation des outils du navigateur Chrome
@@ -20,81 +20,71 @@ notre navigateur. Il s'agit du navigateur Chrome Version 84.0.4147.89 (Build off
 
 #### 2-1- Outil « network »
 
-![img](livrable/audit_site_concurent/assets/audit_network.png)
-
 L’ affichage complet de la page du concurent prend 5,27 secs.
-L’ affichage complet du notre prend 127ms.
-On peut dire que nous avons une longueur d'avance sur ce point sur notre concurent.
 
-##### 1,88 secondes pour ce visuel :
+![img](assets/audit_network_concurent.png)
 
-![img](audit_network_1.88ms.png)
+L’ affichage complet du notre prend 103ms.
+On peut dire que nous avons une longueur d'avance sur notre concurent.
 
-1,88 secondes pour afficher le squelette de l’ application. Pas extrêmement rapide pour des éléments de base. 
+![img](assets/audit_network_todoapp.png)
 
-La console montre que c’est vraiment les PNG qui posent le plus problème.
+Cette différence de temps de chargement s'explique par le fait que le site du concurent utilise beaucoup
+d'images.
 
-##### 5,91 secondes pour ce visuel:
+Pour l'audit du coverage, c'est-à-dire le code utilisé et non utilisé, nous remarquons que nous avons une
+longueur d'avance encore sur notre concurent. 
+En effet le site du concurent utilise que 41% du code de son application.
 
-![img](audit_network_5.91ms.png)
+![img](assets/audit_coverage_concurent.png)
 
-5,91 secondes pour l’affichage de l’ entête et du footer : grosse marge d’ amélioration en optimisant les images (formatSVG à la place de PNG).
+Nous remarquons que le notre utilise jusqu'à 63% de son code,
 
-##### 6,31 secondes pour ce visuel :
+![img](assets/audit_coverage_todoapp.png)
 
-![img](audit_network_6.31ms.png)
+ce qui est quand même à féliciter. 
+Cependant vu les fonctionalités limitées de notre application,
+nous sommes appelés à mieux faire que ça, 
+c'est-à-dire avoir un taux de coverage de 95%.
+Cela peut se faire en éliminant le code non utilisé dans le fichier base.js qui represente les 20% du
+code global no utilisé.
 
-0,4 secondes pour l’ affichage des éléments todo, c’est plutôt rapide.
+En ce qui concerne le concurent, il peut mieux faire en supprimant complètement l'usage de jQuery dans le projet.
+Du point de vue coverage, on s'apperçoit que jusqu'à 43% de jQuery n'est pas utilisé, ce qui est domage.
 
-On peut optimiser le temps de chargement en utilisant le cache pour les images.
+![img](assets/audit_coverage_unused_jquery.png)
 
-Les 2 fichiers les plus longs à chargés sont  le background (texture.png) et jQuery (jquery-ui.js).
+Pareil pour jQuery-ui qui n'a même pas 30% d'usage.
 
-Le background peut-être optimisé (background repeat + fichier en SVG), jQuery intégré uniquement les fonctions utiles.
-
-![img](audit_network_texture.png)
-
-![img](audit_network_jquery.png)
-
-Avec l’ outil coverage on se rend compte par exemple que 75 % Jquery est non utilisés.
-
-![img](audit_network_coverage.png)
+![img](assets/audit_coverage_unused_jquery_ui.png)
 
 #### 2-2- Outil « audit »
-4 catégories :
-* Progressive Web App
+4 Catégories :
 * Performance
 * Accessibilité
 * Bonnes pratiques
 
-##### 2-2-1- Progressive Web App
-
-![img](audit_pwa.png)
-
-9 % de réussite, 10 tests ratés sur 11.
-
-Le site de notre concurrent n’est pas du tout orienté PWA, un point sur lequel nous avons une énorme marge de manœuvre.
-
 ##### 2-2-2- Performance
 
-![img](audit_perf.png)
+33% de test validé, application trop lente.
 
-42 % de test validé, application trop lente.
+Les PNG peuvent être amélioré (SVG, background repeat) 
+tout comme certains fichier JS (utilisation de jquery).
 
-Les PNG peuvent être amélioré (SVG, background repeat) tout comme certains fichier JS (utilisation de jquery).
+![img](assets/audit_performance_concurent.png)
 
 ##### 2-2-3- Accessibilité
 
-![img](audit_accessibilite.png)
-
-83 % de réussite, quelques points d’ amélioration comme :
-* ajouter un attribut alt pour les images
+59% de réussite, quelques points d’ amélioration comme:
+* ajouter un attribut alt pour les images et pour les iframes
 * accentuer plus les contrastes
 * ajouter un attribut lang dans le HTML
 
+![img](assets/audit_accessibilite_concurent.png)
+
 ##### 2-2-4- Bonnes pratiques
 
-![img](audit_practice.png)
+![img](assets/audit_best_practices_concurent.png)
 
 Recommandations pour améliorer les performances et moderniser l’ application.
 
@@ -105,21 +95,29 @@ Recommandations pour améliorer les performances et moderniser l’ application.
 
 ### 3- Comparaison avec notre application
 
-![img](audit_notre_app.png)
-
-#### 3-1. Amélioration possible du PWA
-* simple comme `meta name= «theme-color »`
-* gestion du offline avec un splashscreen...
+![img](assets/audit_todoapp.png)
 
 #### 3-2. Performance 
-OK
+
+Comparativement à la notre qui obtient une note de 99%, nous pouvons dire que sommes bien
+partis pour garder nos utilisateurs
+
+![img](assets/audit_performance_todoapp.png)
 
 #### 3-3. Bonnes pratiques 
-4 tests ratés sur 12. A vérifier.
+12 tests passés sur 12, ce qui témoigne la bonne organisation et structuration de notre code.
+Il reste quelques améliorations à faire, notamment supprimer les affichages inutiles dans la console
+
+![img](assets/audit_best_practices_todoapp.png)
 
 #### 3-4. Accessibilité
-* label : `input class="new-todo" placeholder="What needs to be done?" autofocus`
-* amélioration du contraste entre le 1er plan et le fond d’ écran
+
+Encore une fois, nous obenons une très bonne note comparée à notre concurent, 74% contre 59%
+
+![img](assets/audit_accessibilite_todoapp.png)
+
+Comme axe d'amélioration, nous pouvons ajouter : 
+* un label: `input class="new-todo" placeholder="What needs to be done?" autofocus`
 
 ### 4- Scalling :
 Fonctionnalité que l’on pourrait éventuellement intégré à notre application :
@@ -135,16 +133,14 @@ Fonctionnalité que l’on pourrait éventuellement intégré à notre applicati
 
 ### 5- Résumé
 ##### Application de notre concurrent :
-1. Lente, pas optimisé
-2. Pas orienté PWA
-3. Accessibilité correcte
-4. Design discutable, quelques fonctionnalités intéressantes
+1. Lente, pas optimisée
+2. Accessibilité moins bonne
+3. Design discutable, quelques fonctionnalités intéressantes
 
 ##### Notre application :
 1. Rapide, optimisé et performante
-2. PWA améliorable, axe d’ amélioration évident
 3. Bonne accessibilité, amélioration via `label` et contrastes pour que ce soit parfait
-4. La temporalité et les catégories de listes pourraient être intégrés ?*
+4. La catégorisation des listes
 5. La persistance dans une base de donnée des tâches
 6. La personalisation des profiles afin de mieux gérer les tâches
 7. Permettre le partage des tâches entre utilisateur
