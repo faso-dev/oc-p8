@@ -9,7 +9,7 @@
     "jasmine-core": "^2.0.0",
     "jsdoc": "^3.6.4"
   },
-  "script": {
-    "generate-docs": "node_modules/.bin/jsdoc -c jsdoc.json"
+  "scripts": {
+    "doc": "jsdoc -c jsdoc.json"
   }
 }
