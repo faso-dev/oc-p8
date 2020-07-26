@@ -219,6 +219,6 @@ Ouvrir l' __audit de performance__ dans votre navigateur : [__audit de performan
 
 Ouvrir la _documentation utilisateur_ dans votre navigateur : [__documentation utilisateur__](./livrable/doc_utilisateur/doc_utilisateur.md)
 
-Ouvrir la _documentation technique_ dans votre navigateur : [__documentation utilisateur__](./livrable/doc_technique/docs/index.html)
+Ouvrir la _documentation technique_ dans votre navigateur : [__documentation utilisateur__](https://oc-p8-technical-doc.herokuapp.com)
 
 
