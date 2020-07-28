@@ -25,29 +25,28 @@ L’ affichage complet de la page du concurent prend 5,27 secs.
 ![img](assets/audit_network_concurent.png)
 
 L’ affichage complet du notre prend 103ms.
-On peut dire que nous avons une longueur d'avance sur notre concurent.
 
 ![img](assets/audit_network_todoapp.png)
 
 Cette différence de temps de chargement s'explique par le fait que le site du concurent utilise beaucoup
-d'images.
+d'images nom compréssées, mais aussi beaucoup de fichier js qui n'ont aucun rapport avec la gestion des tâches(todo).
 
 Pour l'audit du coverage, c'est-à-dire le code utilisé et non utilisé, nous remarquons que nous avons une
 longueur d'avance encore sur notre concurent. 
+
 En effet le site du concurent utilise que 41% du code de son application.
+Ce qui nous laisse penser à des fichiers de code inutiles qui sont source de ralentissement de la page
 
 ![img](assets/audit_coverage_concurent.png)
 
 Nous remarquons que le notre utilise jusqu'à 63% de son code,
-
-![img](assets/audit_coverage_todoapp.png)
-
-ce qui est quand même à féliciter. 
 Cependant vu les fonctionalités limitées de notre application,
 nous sommes appelés à mieux faire que ça, 
 c'est-à-dire avoir un taux de coverage de 95%.
 Cela peut se faire en éliminant le code non utilisé dans le fichier base.js qui represente les 20% du
 code global no utilisé.
+
+![img](assets/audit_coverage_todoapp.png)
 
 En ce qui concerne le concurent, il peut mieux faire en supprimant complètement l'usage de jQuery dans le projet.
 Du point de vue coverage, on s'apperçoit que jusqu'à 43% de jQuery n'est pas utilisé, ce qui est domage.
@@ -68,15 +67,24 @@ Notre audit est basé sur 3 catégorie:
 
 33% de test validé, application trop lente.
 
-Les PNG peuvent être amélioré (SVG, background repeat) 
-tout comme certains fichier JS (utilisation de jquery).
+Recommandations pour améliorer les performances et moderniser l’ application.
+
+* Les PNG peuvent être amélioré en (SVG, WebP, JPEG 2000) 
+* Les fichier JS peuvent être minifiée.
+* Supprimer le code css non utilisé.
+* Remplacer l'appel synchrone des sdk Google, Facebook, etc par des appels asynchrone
 
 ![img](assets/audit_performance_concurent.png)
 
 ##### 2-2-3- Accessibilité
 
 59% de réussite, quelques points d’ amélioration comme:
-* ajouter un attribut alt pour les images et pour les iframes
+
+Recommandations pour améliorer l'accessibilité et moderniser l’ application.
+
+* ajouter un attribut alt pour les images
+* ajouter un attribut title pour les iframes
+* les champs des formulaires n'ont pas de label
 * accentuer plus les contrastes
 * ajouter un attribut lang dans le HTML
 
@@ -86,12 +94,13 @@ tout comme certains fichier JS (utilisation de jquery).
 
 ![img](assets/audit_best_practices_concurent.png)
 
-Recommandations pour améliorer les performances et moderniser l’ application.
+Recommandations pour améliorer les bonnes pratiques et moderniser l’ application.
 
 56 %, grosse marge de progression ici également.
 * pas de HTTPS
-* 2 failles de sécurités dans les librairies front utilisés
+* 4 failles de sécurités dans la librairie jquery
 * présences de deux erreurs dans la console
+* affichage des images avec des tailles inapropriée
 
 ### 3- Comparaison avec notre application
 
@@ -117,13 +126,13 @@ Encore une fois, nous obenons une très bonne note comparée à notre concurent,
 ![img](assets/audit_accessibilite_todoapp.png)
 
 Comme axe d'amélioration, nous pouvons ajouter : 
-* un label: `input class="new-todo" placeholder="What needs to be done?" autofocus`
+* un label: `input class="new-todo" placeholder="Votre prochaine tâche?" autofocus`
 
 ### 4- Scalling :
 Fonctionnalité que l’on pourrait éventuellement intégré à notre application :
-* temporalité
-* catégories de liste
-* La persistance dans une base de donnée des tâches
+
+* Catégoirisation des tâches
+* La persistance dans une base de donnée
 * La personalisation des profiles afin de mieux gérer les tâches
 * Permettre le partage des tâches entre utilisateur
 * Ajouter une otpion pour rechercher une tâche
@@ -140,13 +149,6 @@ Fonctionnalité que l’on pourrait éventuellement intégré à notre applicati
 ##### Notre application :
 1. Rapide, optimisé et performante
 3. Bonne accessibilité, amélioration via `label` et contrastes pour que ce soit parfait
-4. La catégorisation des listes
-5. La persistance dans une base de donnée des tâches
-6. La personalisation des profiles afin de mieux gérer les tâches
-7. Permettre le partage des tâches entre utilisateur
-8. Ajouter une otpion pour rechercher une tâche
-9. Ne plus autoriser l'édition des tâches complétées
-10. Permettre d'attribuer le temps qu'il faut pour réaliser une tâche
-11. Ajouter une option de priorité pour les tâches
+4. Bonne pratiques
 
 
