@@ -96,7 +96,7 @@ Recommandations pour améliorer l'accessibilité et moderniser l’ application.
 
 Recommandations pour améliorer les bonnes pratiques et moderniser l’ application.
 
-56 %, grosse marge de progression ici également.
+69 %, grosse marge de progression ici également.
 * pas de HTTPS
 * 4 failles de sécurités dans la librairie jquery
 * présences de deux erreurs dans la console
@@ -127,6 +127,8 @@ Encore une fois, nous obenons une très bonne note comparée à notre concurent,
 
 Comme axe d'amélioration, nous pouvons ajouter : 
 * un label: `input class="new-todo" placeholder="Votre prochaine tâche?" autofocus`
+* ajouter un label aux différents inputs du formulaire
+* ajouter un attribut name au boutons
 
 ### 4- Scalling :
 Fonctionnalité que l’on pourrait éventuellement intégré à notre application :
